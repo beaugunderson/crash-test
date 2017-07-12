@@ -34,3 +34,17 @@ Current thread 0x00007f986f029b48 (most recent call first):
   File "./manage.py", line 22 in <module>
 ./serve.sh: line 4:    12 Segmentation fault      ./manage.py runserver 0.0.0.0:$PORT
 ```
+
+The autoreload code seems to be implicated; when run with `--noreload` a
+SEGFAULT does not occur. In this specific example `boto3` is also implicated,
+even though it's not used (it's only imported). Without importing `boto3` there
+is no SEGFAULT.
+
+### Open issues
+
+I think these issues are all the same root cause, which seems to implicate
+threading:
+
+- [docker-library/python#211](https://github.com/docker-library/python/issues/211) (the issue I filed)
+- [esnme/ultrajson#254](https://github.com/esnme/ultrajson/issues/254)
+- [getsentry/raven-python#1003](https://github.com/getsentry/raven-python/issues/1003)

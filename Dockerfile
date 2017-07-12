@@ -1,4 +1,7 @@
-FROM python:3-alpine3.6
+# These all exhibit the SEGFAULT behavior
+FROM python:3.6-alpine3.6
+# FROM python:3.6-alpine
+# FROM python:3.6.2rc2-alpine3.6
 
 # logging to the console breaks without this
 ENV PYTHONUNBUFFERED 1
