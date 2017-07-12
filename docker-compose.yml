@@ -6,7 +6,7 @@ services:
     command: ./serve.sh
     container_name: ${APP_NAME}-web
     env_file: .env
-    image: canvasmedical/${APP_NAME}
+    image: beaugunderson/${APP_NAME}
     links:
       - db
     ports:
@@ -14,18 +14,6 @@ services:
     restart: unless-stopped
     volumes:
       - .:/app
-
-  prod:
-      build: .
-      command: ./serve.sh
-      container_name: ${APP_NAME}-web
-      env_file: .env
-      image: canvasmedical/${APP_NAME}
-      links:
-        - db
-      ports:
-        - ${PORT}:${PORT}
-      restart: unless-stopped
 
   db:
     # .env is read by docker-compose by default
