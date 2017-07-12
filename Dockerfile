@@ -28,4 +28,4 @@ RUN pip3 install -r requirements.txt -r dev-requirements.txt
 
 COPY . /app/
 
-RUN cd /app && gcc -shared -fPIC stack-fix.c -o stack-fix.o
+RUN cd /app/ && gcc -shared -fPIC stack-fix.c -o stack-fix.o
