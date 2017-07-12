@@ -1,0 +1,48 @@
+version: '2'
+
+services:
+  web:
+    build: .
+    command: ./serve.sh
+    container_name: ${APP_NAME}-web
+    env_file: .env
+    image: canvasmedical/${APP_NAME}
+    links:
+      - db
+    ports:
+      - ${PORT}:${PORT}
+    restart: unless-stopped
+    volumes:
+      - .:/app
+
+  prod:
+      build: .
+      command: ./serve.sh
+      container_name: ${APP_NAME}-web
+      env_file: .env
+      image: canvasmedical/${APP_NAME}
+      links:
+        - db
+      ports:
+        - ${PORT}:${PORT}
+      restart: unless-stopped
+
+  db:
+    # .env is read by docker-compose by default
+    container_name: ${APP_NAME}-db
+    environment:
+      POSTGRES_DB: ${APP_NAME}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    image: postgres:latest
+    ports:
+      - 5435:${DB_PORT}
+    restart: unless-stopped
+    volumes_from:
+      - data
+
+  data:
+    container_name: ${APP_NAME}-data
+    image: tianon/true
+    volumes:
+      - /var/lib/postgresql
