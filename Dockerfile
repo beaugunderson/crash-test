@@ -7,9 +7,7 @@ FROM python:3.6-alpine3.6
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONFAULTHANDLER 1
 
-RUN apk update
-RUN apk upgrade
-RUN apk add --update \
+RUN apk add --no-cache \
         bash \
         build-base \
         gettext \
@@ -17,7 +15,6 @@ RUN apk add --update \
         musl-dev \
         postgresql-client \
         postgresql-dev \
-        python3 \
         python3-dev
 
 RUN mkdir -p /app/
@@ -29,7 +26,5 @@ COPY *.txt /app/
 
 RUN pip3 install --upgrade pip setuptools
 RUN pip3 install -r requirements.txt -r dev-requirements.txt
-
-RUN apk del -r python3-dev postgresql musl-dev linux-headers
 
 COPY . /app/
