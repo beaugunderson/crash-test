@@ -48,3 +48,7 @@ threading:
 - [docker-library/python#211](https://github.com/docker-library/python/issues/211) (the issue I filed)
 - [esnme/ultrajson#254](https://github.com/esnme/ultrajson/issues/254)
 - [getsentry/raven-python#1003](https://github.com/getsentry/raven-python/issues/1003)
+
+There's a potentially related bug that implicates `boto`:
+
+- https://bugs.alpinelinux.org/issues/5590
