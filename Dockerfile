@@ -14,8 +14,7 @@ RUN apk add --no-cache \
         linux-headers \
         musl-dev \
         postgresql-client \
-        postgresql-dev \
-        python3-dev
+        postgresql-dev
 
 RUN mkdir -p /app/
 
