@@ -40,6 +40,9 @@ SEGFAULT does not occur. In this specific example `boto3` is also implicated,
 even though it's not used (it's only imported). Without importing `boto3` there
 is no SEGFAULT.
 
+In this reproduction the SEGFAULTs can be fixed by commenting out the import of
+`boto3` in [sub_app/views.py](sub_app/views.py).
+
 ### Open issues
 
 I think these issues are all the same root cause, which seems to implicate
