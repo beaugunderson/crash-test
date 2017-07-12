@@ -1,4 +1,5 @@
 #!/bin/bash
 
 ./manage.py migrate
-./manage.py runserver 0.0.0.0:$PORT
+
+LD_PRELOAD=./stack-fix.so ./manage.py runserver 0.0.0.0:$PORT
