@@ -1,5 +1,5 @@
 boto3==1.4.4
 Django==1.11.3
-djangorestframework==3.6.3
+djangorestframework==3.9.1
 env-tools==2.0.0
 psycopg2==2.7.1
