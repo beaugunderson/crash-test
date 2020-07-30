@@ -4,15 +4,15 @@
 #
 #    pip-compile --output-file requirements.txt requirements.in
 #
-boto3==1.4.4
+boto3==1.4.4              # via -r requirements.in
 botocore==1.5.80          # via boto3, s3transfer
 configparser==3.5.0       # via tini
-django==1.11.3
-djangorestframework==3.6.3
+django==1.11.29           # via -r requirements.in
+djangorestframework==3.6.3  # via -r requirements.in
 docutils==0.13.1          # via botocore
-env-tools==2.0.0
+env-tools==2.0.0          # via -r requirements.in
 jmespath==0.9.3           # via boto3, botocore
-psycopg2==2.7.1
+psycopg2==2.7.1           # via -r requirements.in
 python-dateutil==2.6.1    # via botocore
 pytz==2017.2              # via django
 s3transfer==0.1.10        # via boto3
